@@ -18,9 +18,9 @@ public class TwoSum {
         return new int[0];
     }
 
-    public static void main(String[] args) {
+    public static void main( String[] args ) {
         int[] nums = {86, 9, 1, 0, -3, -4, 10, 44};
-        int target = -7;
+        int target = 10;
         System.out.println(Arrays.toString(istwoSum(nums, target)));
     }
 }

@@ -1,7 +1,7 @@
 package Homework2;
 
 public class Fibonacci {
-    public static int [] getFibonacci(int n) {
+    public static int[] getFibonacci( int n ) {
         int[] myArray = new int[n];
         myArray[0] = 0;
         if (n > 1) {
@@ -13,8 +13,9 @@ public class Fibonacci {
         return myArray;
 
     }
-    public static void main(String[] args) {
-        int[] fib = getFibonacci(1);
+
+    public static void main( String[] args ) {
+        int[] fib = getFibonacci(10);
         for (int i = 0; i < fib.length; i++) {
             System.out.print(fib[i] + " ");
         }
