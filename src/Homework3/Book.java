@@ -1,6 +1,7 @@
 package Homework3;
 
 import java.util.*;
+
 public class Book {
     String ISBN;
     String Name;
@@ -9,9 +10,6 @@ public class Book {
     String PublicationDate;
     boolean Paperback;
 
-    Book() {
-
-    }
 
     Book( String ISBN, String Name, List<Author> Authors, String Publisher, String PublicationDate, boolean Paperback ) {
         this.ISBN = ISBN;
@@ -44,11 +42,11 @@ public class Book {
     }
 
     public void getBookCover() {
-            if (Paperback) {
-                System.out.println("This book is paperback");
-            } else {
-                System.out.println("This book is hardcover");
-            }
+        if (Paperback) {
+            System.out.println("This book is paperback");
+        } else {
+            System.out.println("This book is hardcover");
         }
+    }
 }
 

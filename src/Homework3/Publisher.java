@@ -5,29 +5,27 @@ public class Publisher {
     String PubName;
     String PubAddress;
 
-    Publisher() {
+
+    Publisher( int ID_pub, String PubName, String PubAddress ) {
+        this.ID_pub = ID_pub;
+        this.PubName = PubName;
+        this.PubAddress = PubAddress;
     }
 
-    Publisher (int ID_pub, String PubName, String PubAddress){
-        this.ID_pub=ID_pub;
-        this.PubName=PubName;
-        this.PubAddress=PubAddress;
-    }
-
-    public String getPublisherName(){
+    public String getPublisherName() {
         return PubName;
     }
 
-    public int getPublisherID(){
+    public int getPublisherID() {
         return ID_pub;
     }
 
-    public String getPublisherAddress(){
+    public String getPublisherAddress() {
         return PubAddress;
     }
 
-    public void setPublisherAddress(String PubAddress){
-        this.PubAddress=PubAddress;
+    public void setPublisherAddress( String PubAddress ) {
+        this.PubAddress = PubAddress;
         System.out.println("Updated publisher's address is: " + PubAddress);
     }
 

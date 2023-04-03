@@ -5,19 +5,17 @@ public class Author {
     int ID_auth;
     String AuthName;
 
-    Author ( int ID_auth, String AuthName){
-        this.ID_auth=ID_auth;
-        this.AuthName=AuthName;
+    Author( int ID_auth, String AuthName ) {
+        this.ID_auth = ID_auth;
+        this.AuthName = AuthName;
     }
 
-    public String getAuthorName(){
+    public String getAuthorName() {
         return AuthName;
     }
 
-    public int getAuthorID(){
-        return ID_auth;
-    }
-    public String toString(){
+
+    public String toString() {
         String authInf = AuthName;
         return authInf;
     }

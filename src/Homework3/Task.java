@@ -1,5 +1,7 @@
 package Homework3;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Task {
     public static void main( String[] args ) {
@@ -16,7 +18,7 @@ public class Task {
         books[0] = new Book("0001", "Voina&Mir", Arrays.asList(author1), publisher1.PubName, "2013", true);
         books[1] = new Book("0002", "Anna Karenina", Arrays.asList(author1), publisher2.PubName, "2010", false);
         books[2] = new Book("0003", "Vishnevy Sad", Arrays.asList(author2), publisher3.PubName, "2000", true);
-        books[3] = new Book("0004", "Dvenadtst Stuliev", Arrays.asList(author3,author4), publisher2.PubName, "1994", true);
+        books[3] = new Book("0004", "Dvenadtst Stuliev", Arrays.asList(author3, author4), publisher2.PubName, "1994", true);
         books[4] = new Book("0004", "Zolotoy Telenok", Arrays.asList(author4), publisher2.PubName, "1994", true);
 
         String separator = "================================================";
@@ -46,7 +48,7 @@ public class Task {
         getBookNamesForAuthor(books, "E.Petrov");
     }
 
-    public static void getBookNamesForAuthor(Book[] books, String authorName) {
+    public static void getBookNamesForAuthor( Book[] books, String authorName ) {
         for (Book book : books) {
             List<Author> authors = book.getAuthorforBook();
             for (Author author : authors) {
