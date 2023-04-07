@@ -6,10 +6,12 @@ import java.util.ArrayList;
 public class BrandNewGreenhouse implements Greenhouse {
     private List<Plant> plants;
     private double temperature;
+
     public BrandNewGreenhouse() {
         plants = new ArrayList<>();
     }
-    public static void main( String[] args ) {
+
+    public static void main(String[] args) {
         String separator = "================================================";
         Greenhouse greenhouse1 = new BrandNewGreenhouse();
 
@@ -78,12 +80,10 @@ public class BrandNewGreenhouse implements Greenhouse {
         // change temperature
         greenhouse1.changeTemperature(23.3);
         System.out.println("Greenhouse temperature is " + greenhouse1.getTemperature());
-
-
     }
 
     @Override
-    public void buyPlant( Plant plant ) {
+    public void buyPlant(Plant plant) {
         plants.add(plant);
     }
 
@@ -93,12 +93,12 @@ public class BrandNewGreenhouse implements Greenhouse {
     }
 
     @Override
-    public void removePlant( Plant plant ) {
+    public void removePlant(Plant plant) {
         plants.remove(plant);
     }
 
     @Override
-    public void changeTemperature( double temperature ) {
+    public void changeTemperature(double temperature) {
         this.temperature = temperature;
     }
 
@@ -108,7 +108,7 @@ public class BrandNewGreenhouse implements Greenhouse {
     }
 
     @Override
-    public List<Plant> getPlantByType( String type ) {
+    public List<Plant> getPlantByType(String type) {
         List<Plant> plantsByType = new ArrayList<>();
         for (Plant plant : plants) {
             if (plant.getPlantType().equals(type)) {
@@ -119,7 +119,7 @@ public class BrandNewGreenhouse implements Greenhouse {
     }
 
     @Override
-    public List<Plant> getPlantByNativeRegion( String nativeRegion ) {
+    public List<Plant> getPlantByNativeRegion(String nativeRegion) {
         List<Plant> plantsByRegion = new ArrayList<>();
         for (Plant p : plants) {
             if (p.getPlantNativeRegion().equals(nativeRegion) || p.getPlantNativeRegion().toLowerCase().contains(nativeRegion.toLowerCase())) {
@@ -128,5 +128,4 @@ public class BrandNewGreenhouse implements Greenhouse {
         }
         return plantsByRegion;
     }
-
 }

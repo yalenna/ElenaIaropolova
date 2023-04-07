@@ -1,49 +1,43 @@
 package Homework4;
 
-
 public class Shrub extends Plant {
-    private String shrubName;
-    private String shrubType;
-    private String shrubNativeRegion;
-    private boolean shrubIsWatered;
-
     @Override
-    public void createPlant( String name, String type, String nativeRegion, boolean isWatered ) {
-        this.shrubName = name;
-        this.shrubType = type;
-        this.shrubNativeRegion = nativeRegion;
-        this.shrubIsWatered = isWatered;
+    public void createPlant(String name, String type, String nativeRegion, boolean isWatered) {
+        this.name = name;
+        this.type = type;
+        this.nativeRegion = nativeRegion;
+        this.isWatered = isWatered;
     }
 
     @Override
-    public void updatePlant( String name, String type, String nativeRegion, boolean isWatered ) {
+    public void updatePlant(String name, String type, String nativeRegion, boolean isWatered) {
     }
 
     @Override
     public String getPlantName() {
-        return shrubName;
+        return name;
     }
 
     @Override
     public String getPlantType() {
-        return shrubType;
+        return type;
     }
 
     @Override
     public String getPlantNativeRegion() {
-        return shrubNativeRegion;
+        return nativeRegion;
     }
 
     @Override
     public void waterPlant() {
-        shrubIsWatered = true;
+        isWatered = true;
     }
 
     public void trimShrub() {
-        System.out.println(shrubName + " was trimmed. Looks great!");
+        System.out.println(name + " was trimmed. Looks great!");
     }
 
     public String toString() {
-        return ("Shrub plant info\n" + "Name: " + shrubName + "\n" + "Type: " + shrubType + "\n" + "Native Region: " + shrubNativeRegion);
+        return ("Shrub plant info\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Native Region: " + nativeRegion);
     }
 }

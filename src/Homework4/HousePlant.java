@@ -1,55 +1,49 @@
 package Homework4;
 
 public class HousePlant extends Plant {
-    private String housePlantName;
-    private String housePlantType;
-    private String housePlantNativeRegion;
-    private boolean housePlantIsWatered;
-
     @Override
-    public void createPlant( String name, String type, String nativeRegion, boolean isWatered ) {
-        this.housePlantName = name;
-        this.housePlantType = type;
-        this.housePlantNativeRegion = nativeRegion;
-        this.housePlantIsWatered = isWatered;
-
+    public void createPlant(String name, String type, String nativeRegion, boolean isWatered) {
+        this.name = name;
+        this.type = type;
+        this.nativeRegion = nativeRegion;
+        this.isWatered = isWatered;
     }
 
     @Override
-    public void updatePlant( String name, String type, String nativeRegion, boolean isWatered ) {
-        this.housePlantName = name;
-        this.housePlantType = type;
-        this.housePlantNativeRegion = nativeRegion;
-        this.housePlantIsWatered = isWatered;
+    public void updatePlant(String name, String type, String nativeRegion, boolean isWatered) {
+        this.name = name;
+        this.type = type;
+        this.nativeRegion = nativeRegion;
+        this.isWatered = isWatered;
         System.out.println("Updated plant info: " + name + " - " + type + " - " + nativeRegion + " - " + isWatered);
     }
 
     @Override
     public String getPlantName() {
-        return housePlantName;
+        return name;
     }
 
     @Override
     public String getPlantType() {
-        return housePlantType;
+        return type;
     }
 
     @Override
     public String getPlantNativeRegion() {
-        return housePlantNativeRegion;
+        return nativeRegion;
     }
 
     @Override
     public void waterPlant() {
-        housePlantIsWatered = true;
-        System.out.println(housePlantName + " was watered");
+        isWatered = true;
+        System.out.println(name + " was watered");
     }
 
     public void fertilizeHousePlant() {
-        System.out.println(housePlantName + " was fertilized. Now it will grow faster!");
+        System.out.println(name + " was fertilized. Now it will grow faster!");
     }
 
     public String toString() {
-        return ("House plant info\n" + "Name: " + housePlantName + "\n" + "Type: " + housePlantType + "\n" + "Native Region: " + housePlantNativeRegion + "\n" + "Is watered: " + housePlantIsWatered);
+        return ("House plant info\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Native Region: " + nativeRegion + "\n" + "Is watered: " + isWatered);
     }
 }
