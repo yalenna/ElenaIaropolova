@@ -1,49 +1,43 @@
 package Homework4;
 
 public class FloweringPlant extends Plant {
-    private String flowerName;
-    private String flowerType;
-    private String flowerNativeRegion;
-    private boolean flowerIsWatered;
-
     @Override
-    public void createPlant( String name, String type, String nativeRegion, boolean isWatered ) {
-        this.flowerName = name;
-        this.flowerType = type;
-        this.flowerNativeRegion = nativeRegion;
-        this.flowerIsWatered = isWatered;
+    public void createPlant(String name, String type, String nativeRegion, boolean isWatered) {
+        this.name = name;
+        this.type = type;
+        this.nativeRegion = nativeRegion;
+        this.isWatered = isWatered;
     }
 
     @Override
-    public void updatePlant( String name, String type, String nativeRegion, boolean isWatered ) {
-
+    public void updatePlant(String name, String type, String nativeRegion, boolean isWatered) {
     }
 
     @Override
     public String getPlantName() {
-        return flowerName;
+        return name;
     }
 
     @Override
     public String getPlantType() {
-        return flowerType;
+        return type;
     }
 
     @Override
     public String getPlantNativeRegion() {
-        return flowerNativeRegion;
+        return nativeRegion;
     }
 
     @Override
     public void waterPlant() {
-        flowerIsWatered = true;
+        isWatered = true;
     }
 
     public void tieUpFlower() {
-        System.out.println(flowerName + " was tied up. It doesn't fall anymore!");
+        System.out.println(name + " was tied up. It doesn't fall anymore!");
     }
 
     public String toString() {
-        return ("Flower plant info\n" + "Name: " + flowerName + "\n" + "Type: " + flowerType + "\n" + "Native Region: " + flowerNativeRegion);
+        return ("Flower plant info\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Native Region: " + nativeRegion);
     }
 }

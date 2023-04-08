@@ -6,27 +6,23 @@ import java.util.ArrayList;
 public class BrandNewGreenhouse implements Greenhouse, Illuminated {
     private List<Plant> plants;
     private double temperature;
-
     public BrandNewGreenhouse() {
         plants = new ArrayList<>();
     }
 
     @Override
     public void illuminateRed() {
-
     }
 
     @Override
     public void illuminateWhite() {
-
     }
-
 
     public static class GreenhouseCapacity {
         private String capacity;
         private int numberOfPlants;
 
-        public GreenhouseCapacity( String capacity, int numberOfPlants ) {
+        public GreenhouseCapacity(String capacity, int numberOfPlants) {
             this.capacity = capacity;
             this.numberOfPlants = numberOfPlants;
         }
@@ -42,10 +38,8 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         }
     }
 
-
-    public static void main( String[] args ) {
+    public static void main(String[] args) {
         Illuminated illumination = new Illuminated() {
-
             @Override
             public void illuminateRed() {
                 System.out.println("Greenhouse is illuminated with red light");
@@ -56,7 +50,6 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
                 System.out.println("Greenhouse is illuminated with white light");
             }
         };
-
 
         String separator = "================================================";
         Greenhouse greenhouse1 = new BrandNewGreenhouse();
@@ -168,7 +161,7 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
     }
 
     @Override
-    public void buyPlant( Plant plant ) {
+    public void buyPlant(Plant plant) {
         plants.add(plant);
     }
 
@@ -178,12 +171,12 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
     }
 
     @Override
-    public void removePlant( Plant plant ) {
+    public void removePlant(Plant plant) {
         plants.remove(plant);
     }
 
     @Override
-    public void changeTemperature( double temperature ) {
+    public void changeTemperature(double temperature) {
         this.temperature = temperature;
     }
 
@@ -193,7 +186,7 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
     }
 
     @Override
-    public List<Plant> getPlantByType( String type ) {
+    public List<Plant> getPlantByType(String type) {
         List<Plant> plantsByType = new ArrayList<>();
         for (Plant plant : plants) {
             if (plant.getPlantType().equals(type)) {
@@ -204,7 +197,7 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
     }
 
     @Override
-    public List<Plant> getPlantByNativeRegion( String nativeRegion ) {
+    public List<Plant> getPlantByNativeRegion(String nativeRegion) {
         List<Plant> plantsByRegion = new ArrayList<>();
         for (Plant p : plants) {
             if (p.getPlantNativeRegion().equals(nativeRegion) || p.getPlantNativeRegion().toLowerCase().contains(nativeRegion.toLowerCase())) {
@@ -213,5 +206,4 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         }
         return plantsByRegion;
     }
-
 }
