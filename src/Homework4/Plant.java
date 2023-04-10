@@ -5,8 +5,20 @@ public abstract class Plant implements Actions {
     protected String type;
     protected String nativeRegion;
     protected boolean isWatered;
-    public abstract String getPlantName();
-    public abstract String getPlantType();
-    public abstract String getPlantNativeRegion();
-    public abstract String toString();
+
+    public String getPlantName(){
+        return name;
+    }
+
+    public String getPlantType(){
+        return type;
+    }
+
+    public String getPlantNativeRegion(){
+        return nativeRegion;
+    }
+
+    public String toString() {
+        return ("Name: " + name + "\n" + "Type: " + type + "\n" + "Native Region: " + nativeRegion);
+    }
 }

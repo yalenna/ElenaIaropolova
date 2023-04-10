@@ -1,13 +1,22 @@
 package Homework4;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class BrandNewGreenhouse implements Greenhouse, Illuminated {
+    private static Scanner scanner = new Scanner(System.in);
     private List<Plant> plants;
     private double temperature;
+    private File file;
+
     public BrandNewGreenhouse() {
         plants = new ArrayList<>();
+        file = new File(".\\src\\Homework4\\MyGreenhouse.txt");
     }
 
     @Override
@@ -38,7 +47,13 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         }
     }
 
-    public static void main(String[] args) {
+    public static class NonExistingOption extends Exception {
+        public NonExistingOption(String message) {
+            super(message);
+        }
+    }
+
+    public static void main(String[] args) throws NonExistingOption {
         Illuminated illumination = new Illuminated() {
             @Override
             public void illuminateRed() {
@@ -53,6 +68,90 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
 
         String separator = "================================================";
         Greenhouse greenhouse1 = new BrandNewGreenhouse();
+
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("1 - Add a new plant to the greenhouse");
+            System.out.println("2 - Remove a plant from the greenhouse");
+            System.out.println("3 - Find a plant in the greenhouse by any parameter");
+            System.out.println("4 - Quit");
+            try {
+                int option = scanner.nextInt();
+                scanner.nextLine();
+                switch (option) {
+                    case 1:
+                        System.out.println("Plant name:");
+                        String name = scanner.nextLine();
+                        System.out.println("Plant type: Shrub - Flowering Plant - House Plant");
+                        String type = scanner.nextLine();
+                        System.out.println("Plant native region");
+                        String nativeRegion = scanner.nextLine();
+                        Plant plant;
+                        switch (type) {
+                            case "Flowering Plant":
+                                plant = new FloweringPlant();
+                                break;
+                            case "Shrub":
+                                plant = new Shrub();
+                                break;
+                            case "House Plant":
+                                plant = new HousePlant();
+                                break;
+                            default:
+                                System.out.println("There is no such type. Plant is not created.");
+                                continue;
+                        }
+                        plant.createPlant(name, type, nativeRegion, false);
+                        greenhouse1.buyPlant(plant);
+                        System.out.println("'" + plant.getPlantName() + "'" + " was added");
+                        break;
+                    case 2:
+                        System.out.println("Enter plant name you want to delete");
+                        String plantName = scanner.nextLine().toLowerCase();
+                        Plant toRemove = null;
+                        List<Plant> plants = greenhouse1.getAllPlants();
+                        for (Plant p : plants) {
+                            if (p.getPlantName().toLowerCase().contains(plantName)) {
+                                toRemove = p;
+                            }
+                        }
+                        if (toRemove != null) {
+                            greenhouse1.removePlant(toRemove);
+                            System.out.println(toRemove.getPlantName() + " was deleted");
+                        } else {
+                            System.out.println("Not found");
+                        }
+                        break;
+                    case 3:
+                        System.out.println("Enter the query");
+                        String query = scanner.nextLine().toLowerCase();
+                        List<Plant> plants1 = greenhouse1.getAllPlants();
+                        boolean found = false;
+                        for (Plant p : plants1) {
+                            if (p.getPlantName().toLowerCase().contains(query) ||
+                                    p.getPlantType().toLowerCase().contains(query) ||
+                                    p.getPlantNativeRegion().toLowerCase().contains(query)) {
+                                System.out.println("Plant found " + p.getPlantName() + " " + p.getPlantType() + " " + p.getPlantNativeRegion());
+                                found = true;
+                            }
+                        }
+                        if (!found) {
+                            System.out.println("No plants matching '" + query + "'");
+                        }
+                        break;
+                    case 4:
+                        exit = true;
+                        break;
+                    default:
+                        throw new NonExistingOption("Invalid option: " + option + ". Enter values 1, 2, 3, 4");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Characters are not allowed. Enter values 1, 2, 3, 4");
+                scanner.nextLine();
+            } catch (NonExistingOption e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         //using of anonymous - illuminate
         illumination.illuminateRed();
@@ -85,9 +184,9 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         fertilizeFicus.fertilizeHousePlant();
 
         // add plants to greenhouse
-        greenhouse1.buyPlant(ficus);
-        greenhouse1.buyPlant(raspberry);
-        greenhouse1.buyPlant(tulip);
+        //greenhouse1.buyPlant(ficus);
+        //greenhouse1.buyPlant(raspberry);
+        //greenhouse1.buyPlant(tulip);
 
         // get all plants in greenhouse
         System.out.println(separator);
@@ -139,8 +238,8 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         location.displayGreenhouseCapacity();
 
         //using of inner - remove all plants from the greenhouse2 (add, get, delete, get)
-        greenhouse2.buyPlant(tulip);
-        greenhouse2.buyPlant(ficus);
+        //greenhouse2.buyPlant(tulip);
+        //greenhouse2.buyPlant(ficus);
 
         // get all plants
         System.out.println(separator);
@@ -163,6 +262,13 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
     @Override
     public void buyPlant(Plant plant) {
         plants.add(plant);
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(plant.toString() + "\n");
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("File was not updated");
+        }
     }
 
     @Override
@@ -173,6 +279,15 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
     @Override
     public void removePlant(Plant plant) {
         plants.remove(plant);
+        try {
+            FileWriter writer = new FileWriter(file);
+            for (Plant p : plants) {
+                writer.write(p.toString() + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("File was not updated");
+        }
     }
 
     @Override
