@@ -15,17 +15,7 @@ public class Shrub extends Plant {
 
     @Override
     public String getPlantName() {
-        return name;
-    }
-
-    @Override
-    public String getPlantType() {
-        return type;
-    }
-
-    @Override
-    public String getPlantNativeRegion() {
-        return nativeRegion;
+        return "Shrub - " + super.getPlantName();
     }
 
     @Override
@@ -38,6 +28,6 @@ public class Shrub extends Plant {
     }
 
     public String toString() {
-        return ("Shrub plant info\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Native Region: " + nativeRegion);
+        return "Shrub info\n" + super.toString();
     }
 }

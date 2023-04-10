@@ -11,22 +11,11 @@ public class FloweringPlant extends Plant {
 
     @Override
     public void updatePlant(String name, String type, String nativeRegion, boolean isWatered) {
-
     }
 
     @Override
     public String getPlantName() {
-        return name;
-    }
-
-    @Override
-    public String getPlantType() {
-        return type;
-    }
-
-    @Override
-    public String getPlantNativeRegion() {
-        return nativeRegion;
+        return "Flowering plant - " + super.getPlantName();
     }
 
     @Override
@@ -39,6 +28,6 @@ public class FloweringPlant extends Plant {
     }
 
     public String toString() {
-        return ("Flower plant info\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Native Region: " + nativeRegion);
+        return "Flowering plant info\n" + super.toString();
     }
 }
