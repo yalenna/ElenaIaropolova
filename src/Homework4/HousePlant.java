@@ -20,17 +20,7 @@ public class HousePlant extends Plant {
 
     @Override
     public String getPlantName() {
-        return name;
-    }
-
-    @Override
-    public String getPlantType() {
-        return type;
-    }
-
-    @Override
-    public String getPlantNativeRegion() {
-        return nativeRegion;
+        return "House plant - " + super.getPlantName();
     }
 
     @Override
@@ -44,6 +34,6 @@ public class HousePlant extends Plant {
     }
 
     public String toString() {
-        return ("House plant info\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Native Region: " + nativeRegion + "\n" + "Is watered: " + isWatered);
+        return "House plant info\n" + super.toString();
     }
 }
