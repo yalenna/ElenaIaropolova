@@ -10,15 +10,15 @@ public abstract class Plant implements Actions {
         return name;
     }
 
-    public String getPlantType() {
+    public String getPlantType(){
         return type;
     }
 
-    public String getPlantNativeRegion() {
+    public String getPlantNativeRegion(){
         return nativeRegion;
     }
 
-    public String toString() {
+    public String toString(){
         return ("Name: " + name + "\n" + "Type: " + type + "\n" + "Native Region: " + nativeRegion);
     }
 }
