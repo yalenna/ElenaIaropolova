@@ -1,5 +1,6 @@
 package Homework4;
 
+import jdk.jshell.spi.ExecutionControl;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,10 +22,20 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
 
     @Override
     public void illuminateRed() {
+        try {
+            throw new ExecutionControl.NotImplementedException("Method illuminateRed is not implemented yet");
+        } catch (ExecutionControl.NotImplementedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void illuminateWhite() {
+        try {
+            throw new ExecutionControl.NotImplementedException("Method illuminateWhite is not implemented yet");
+        } catch (ExecutionControl.NotImplementedException e) {
+           e.printStackTrace();
+        }
     }
 
     public static class GreenhouseCapacity {
@@ -183,11 +194,6 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         HousePlant fertilizeFicus = (HousePlant) ficus;
         fertilizeFicus.fertilizeHousePlant();
 
-        // add plants to greenhouse
-        //greenhouse1.buyPlant(ficus);
-        //greenhouse1.buyPlant(raspberry);
-        //greenhouse1.buyPlant(tulip);
-
         // get all plants in greenhouse
         System.out.println(separator);
         List<Plant> plantsInGreenhouse = greenhouse1.getAllPlants();
@@ -237,10 +243,6 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         BrandNewGreenhouse.GreenhouseCapacity location = new GreenhouseCapacity("Small", 532);
         location.displayGreenhouseCapacity();
 
-        //using of inner - remove all plants from the greenhouse2 (add, get, delete, get)
-        //greenhouse2.buyPlant(tulip);
-        //greenhouse2.buyPlant(ficus);
-
         // get all plants
         System.out.println(separator);
         List<Plant> plantsInGreenhouse2 = greenhouse2.getAllPlants();
@@ -256,7 +258,6 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         for (Plant plant : plantsInGreenhouse3) {
             System.out.println("In greenhouse: " + plant.getPlantName());
         }
-
     }
 
     @Override
