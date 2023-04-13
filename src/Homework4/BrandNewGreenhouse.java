@@ -21,22 +21,14 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
     }
 
     @Override
-    public void illuminateRed() {
-        try {
-            throw new ExecutionControl.NotImplementedException("Method illuminateRed is not implemented yet");
-        } catch (ExecutionControl.NotImplementedException e) {
-            e.printStackTrace();
-        }
+    public void illuminateRed() throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException("Method illuminateRed is not implemented yet");
     }
 
     @Override
-    public void illuminateWhite() {
-        try {
+    public void illuminateWhite() throws ExecutionControl.NotImplementedException {
             throw new ExecutionControl.NotImplementedException("Method illuminateWhite is not implemented yet");
-        } catch (ExecutionControl.NotImplementedException e) {
-           e.printStackTrace();
         }
-    }
 
     public static class GreenhouseCapacity {
         private String capacity;
@@ -64,7 +56,7 @@ public class BrandNewGreenhouse implements Greenhouse, Illuminated {
         }
     }
 
-    public static void main(String[] args) throws NonExistingOption {
+    public static void main(String[] args) throws NonExistingOption, ExecutionControl.NotImplementedException {
         Illuminated illumination = new Illuminated() {
             @Override
             public void illuminateRed() {
