@@ -13,7 +13,7 @@ public class Task5 {
                 BufferedReader reader = new BufferedReader(new FileReader(".\\src\\Homework7\\poem.txt"));
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    text += line.replaceAll("[^a-zA-Z ]", " ").toLowerCase();
+                    text += line.replaceAll("[.,;]", " ").toLowerCase();
                 }
                 reader.close();
 
