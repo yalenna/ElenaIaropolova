@@ -8,9 +8,9 @@ import java.util.Set;
 
 public class Task4 {
     public static void main(String[] args) {
-        try {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./src/Homework7/Resources/poem.txt"))) {
+
             Set<String> uniqueWords = new HashSet<>();
-            BufferedReader reader = new BufferedReader(new FileReader(".\\src\\Homework7\\poem.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] words = line.split("\\s+");
@@ -21,7 +21,6 @@ public class Task4 {
                     }
                 }
             }
-            reader.close();
             System.out.println("Result: " + uniqueWords);
         } catch (IOException e) {
             e.printStackTrace();

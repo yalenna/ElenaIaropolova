@@ -1,26 +1,19 @@
 package Homework7;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 public class Task1 {
     public static void main(String[] args) {
-        try {
-            List<String> lines = new ArrayList<>();
-            BufferedReader reader = new BufferedReader(new FileReader(".\\src\\Homework7\\input.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                lines.add(line);
-            }
-            reader.close();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./src/Homework7/Resources/output.txt"))) {
+            List<String> lines = FileUtils.readFileToList("./src/Homework7/Resources/input.txt");
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(".\\src\\Homework7\\input.txt"));
             for (int i = lines.size() - 1; i >= 0; i--) {
                 writer.write(lines.get(i));
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,21 +1,13 @@
 package Homework7;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Task3 {
     public static void main(String[] args) {
-        Set<Integer> set1 = new HashSet<>();
-        set1.add(1);
-        set1.add(50);
-        set1.add(3);
-
-        Set<Integer> set2 = new HashSet<>();
-        set2.add(3);
-        set2.add(2);
-        set2.add(8);
-        set2.add(50);
-        set2.add(32);
+        Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 50, 3));
+        Set<Integer> set2 = new HashSet<>(Arrays.asList(3, 2, 8, 50, 32));
 
         Set<Integer> union = join(set1, set2);
         System.out.println("Union: " + union);
