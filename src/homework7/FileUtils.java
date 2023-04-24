@@ -1,4 +1,4 @@
-package Homework7;
+package homework7;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
