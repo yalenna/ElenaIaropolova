@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class Task1 {
     public static void main(String[] args) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./src/Homework7/Resources/output.txt"))) {
-            List<String> lines = FileUtils.readFileToList("./src/Homework7/Resources/input.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./src/resources/output.txt"))) {
+            List<String> lines = FileUtils.readFileToList("./src/resources/input.txt");
 
             Collections.reverse(lines);
 

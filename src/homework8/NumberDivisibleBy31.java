@@ -1,6 +1,6 @@
 package homework8;
 
 @FunctionalInterface
-interface NumberDivisibleBy31 {
+public interface NumberDivisibleBy31 {
     boolean test(int number);
 }

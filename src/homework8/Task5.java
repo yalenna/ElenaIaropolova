@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class Task5 {
     public static void main(String[] args) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("./src/Homework7/Resources/poem.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./src/resources/poem.txt"))) {
             String text = reader.lines()
                     .map(line -> line.replaceAll("[.,;]", " ").toLowerCase())
                     .collect(Collectors.joining(" "));
